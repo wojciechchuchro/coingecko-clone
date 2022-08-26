@@ -1,21 +1,37 @@
 import useAxios from "../hooks/useAxios";
-import CryptoHome from "../pages/CryptoHome";
+import Coin from "./Coin";
+import "../styles/Markets.css";
 
 export default function Markets() {
-  const { response } = useAxios(
+  const { response, loading } = useAxios(
     "coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
   );
-  console.log(response);
+
+  if (loading) {
+    return (
+      <div>
+        <p>Loading</p>
+      </div>
+    );
+  }
+
   return (
-    <ul>
-      {response.map((coin) => {
-        return (
-          <li>
-            {coin.name} {coin.symbol}
-            <img className="market__image" src={coin.image} alt={coin.name} />
-          </li>
-        );
-      })}
-    </ul>
+    <div className="market__container">
+      <table className="market__ul ">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Waluta</th>
+            <th>Kurs</th>
+          </tr>
+        </thead>
+        <tbody>
+          {response &&
+            response.map((coin) => {
+              return <Coin key={coin.id} coin={coin} />;
+            })}
+        </tbody>
+      </table>
+    </div>
   );
 }

@@ -1,0 +1,50 @@
+.market__container {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.market__list {
+}
+
+.market__image {
+  width: 1rem;
+  height: 1rem;
+}
+.market__span {
+  text-transform: uppercase;
+  font-size: small;
+  color: hsla(0, 0%, 100%, 0.6);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-right: auto;
+  margin-left: auto;
+}
+thead {
+  color: #4a4a4a;
+  background-color: #181818;
+}
+
+tr,
+table {
+  border-top: 1px solid hsla(0, 0%, 100%, 0.12);
+  color: white;
+}
+
+td,
+th {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+tr:hover,
+thead:hover {
+  filter: brightness(65%);
+}
+.market__span__container {
+}
+.market__span__container:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
