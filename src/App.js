@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CryptoDetail from "./pages/CryptoDetail";
 import CryptoHome from "./pages/CryptoHome";
