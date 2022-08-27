@@ -6,7 +6,6 @@ export default function Markets() {
   const { response, loading } = useAxios(
     "coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
   );
-
   if (loading) {
     return (
       <div>
@@ -14,15 +13,17 @@ export default function Markets() {
       </div>
     );
   }
-
   return (
     <div className="market__container">
       <table className="market__ul ">
         <thead>
           <tr>
             <th>#</th>
-            <th>Waluta</th>
+            <th>Coin</th>
             <th>Kurs</th>
+            <th>24h</th>
+            <th>24h Volume</th>
+            <th>Mkt Cap</th>
           </tr>
         </thead>
         <tbody>

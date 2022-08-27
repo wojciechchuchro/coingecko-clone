@@ -22,7 +22,7 @@ const useAxios = (param) => {
 
   useEffect(() => {
     fetchData(param);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return {
     response,
