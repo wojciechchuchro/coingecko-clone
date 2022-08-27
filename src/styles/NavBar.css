@@ -1,0 +1,19 @@
+.navbar__container {
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar__container__icons {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.navbar__span__icons {
+  padding-left: 0.7rem;
+}
