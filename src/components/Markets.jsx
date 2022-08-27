@@ -1,5 +1,5 @@
 import useAxios from "../hooks/useAxios";
-import Coin from "./Coin";
+import CoinList from "./CoinList.jsx";
 import "../styles/Markets.css";
 
 export default function Markets() {
@@ -29,7 +29,7 @@ export default function Markets() {
         <tbody>
           {response &&
             response.map((coin) => {
-              return <Coin key={coin.id} coin={coin} />;
+              return <CoinList key={coin.id} coin={coin} />;
             })}
         </tbody>
       </table>

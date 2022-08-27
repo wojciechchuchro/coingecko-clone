@@ -14,7 +14,7 @@ export default function CoinList({ coin }) {
     }
   }
   return (
-    <>
+    <tr>
       <StarIcon /> <td>{coin.market_cap_rank}.</td>
       <td>
         <div className="market__span__container">
@@ -43,6 +43,6 @@ export default function CoinList({ coin }) {
           maximumFractionDigits: 2,
         })}
       </td>
-    </>
+    </tr>
   );
 }
