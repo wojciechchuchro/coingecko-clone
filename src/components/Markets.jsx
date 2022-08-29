@@ -1,5 +1,6 @@
 import useAxios from "../hooks/useAxios";
-import CoinList from "./CoinList.jsx";
+import CoinBodyTable from "./CoinBodyTable";
+import CoinHeaderTable from "./CoinHeaderTable";
 import "../styles/Markets.css";
 
 export default function Markets() {
@@ -13,25 +14,21 @@ export default function Markets() {
       </div>
     );
   }
+
+  const columns = [
+    { label: "#", accessor: "rank" },
+    { label: "Coin", accessor: "coin" },
+    { label: "Price", accessor: "price" },
+    { label: "24h", accessor: "24H" },
+    { label: "24h Volume", accessor: "24h_Volume" },
+    { label: "Mkt Cap", accessor: "Mkt_Cap" },
+  ];
+
   return (
     <div className="market__container">
       <table className="market__ul ">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Coin</th>
-            <th>Kurs</th>
-            <th>24h</th>
-            <th>24h Volume</th>
-            <th>Mkt Cap</th>
-          </tr>
-        </thead>
-        <tbody>
-          {response &&
-            response.map((coin) => {
-              return <CoinList key={coin.id} coin={coin} />;
-            })}
-        </tbody>
+        <CoinHeaderTable columns={columns} />
+        <CoinBodyTable response={response} />
       </table>
     </div>
   );

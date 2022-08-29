@@ -1,6 +1,7 @@
 import React from "react";
 import { StarIcon } from "../icons/icons";
 import "../styles/CoinList.css";
+
 export default function CoinList({ coin }) {
   function percentageColor(percentage) {
     if (percentage < 0) {
@@ -15,7 +16,10 @@ export default function CoinList({ coin }) {
   }
   return (
     <tr>
-      <StarIcon /> <td>{coin.market_cap_rank}.</td>
+      <td>
+        {" "}
+        <StarIcon /> {coin.market_cap_rank}.
+      </td>
       <td>
         <div className="market__span__container">
           <span className="market__span">
