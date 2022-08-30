@@ -1,3 +1,9 @@
+import HistoryChart from "../components/HistoryChart";
+
 export default function CryptoDetail() {
-  return <div>CryptoDetail</div>;
+  return (
+    <div>
+      <HistoryChart />
+    </div>
+  );
 }

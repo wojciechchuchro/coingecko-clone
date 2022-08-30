@@ -1,7 +1,7 @@
 import useAxios from "../hooks/useAxios";
-import CoinBodyTable from "./CoinBodyTable";
-import CoinHeaderTable from "./CoinHeaderTable";
+import Coin from "./Coin.jsx";
 import "../styles/Markets.css";
+import CoinHeader from "./CoinHeader";
 
 export default function Markets() {
   const { response, loading } = useAxios(
@@ -16,20 +16,22 @@ export default function Markets() {
   }
 
   const columns = [
-    { label: "#", accessor: "rank" },
-    { label: "Coin", accessor: "coin" },
-    { label: "Price", accessor: "price" },
-    { label: "24h", accessor: "24H" },
-    { label: "24h Volume", accessor: "24h_Volume" },
-    { label: "Mkt Cap", accessor: "Mkt_Cap" },
+    { column: "#", key: "rank" },
+    { column: "Coin", key: "coin" },
+    { column: "Price", key: "price" },
+    { column: "24h", key: "24H" },
+    { column: "24h Volume", key: "24h_Volume" },
+    { column: "Mkt Cap", key: "Mkt_Cap" },
   ];
 
   return (
-    <div className="market__container">
-      <table className="market__ul ">
-        <CoinHeaderTable columns={columns} />
-        <CoinBodyTable response={response} />
-      </table>
-    </div>
+    <section className="market__container">
+      <div className="market__coin__header market__coin__body market__justify__content__center">
+        {columns.map(({ column, key }) => (
+          <CoinHeader key={key} column={column} />
+        ))}
+      </div>
+      {response && response.map((c) => <Coin key={c.id} c={c} />)}
+    </section>
   );
 }

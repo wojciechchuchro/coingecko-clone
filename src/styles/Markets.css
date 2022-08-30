@@ -1,14 +1,40 @@
 /* market__list */
 
+.link {
+  text-decoration: none;
+}
+
 .market__container {
   margin-left: 5%;
   margin-right: 5%;
 }
 
+.market__coin__body {
+  display: grid;
+  grid-template-columns: 3rem auto 3rem 3rem 8rem 8rem;
+  grid-template-rows: 2rem;
+  color: #ccc;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.12);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.market__coin__header {
+  background-color: #181818;
+  color: #ccc;
+  font-weight: bold;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
 .market__span__container {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   color: white;
+}
+
+.market__justify__content__right {
+  justify-content: right;
 }
 
 .market__image {
@@ -16,8 +42,8 @@
   height: 1rem;
 }
 
-.market__span {
-  margin-right: 0.4rem;
+.market__margin__left {
+  margin-left: 0.4rem;
 }
 
 .market__span__symbol {
@@ -35,35 +61,20 @@
   font-weight: bold;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-tr,
-table {
-  color: #ccc;
-  border-top: 1px solid hsla(0, 0%, 100%, 0.12);
-}
-
-thead {
-  background-color: #121212;
-}
-
-td,
-th {
-  text-align: left;
-  text-justify: center;
-  padding: 0.5rem;
-}
-
-tr {
-  text-align: center;
-}
-
-tr:hover,
-thead:hover {
+.market__coin__body:hover {
   background-color: #181818;
+}
+
+/* market 24h % change */
+
+.green__color {
+  color: #8dc647;
+}
+
+.red__color {
+  color: #cd3726;
+}
+
+.grey__color {
+  color: grey;
 }
