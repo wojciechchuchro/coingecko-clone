@@ -10,3 +10,8 @@ export function percentageColor(percentage) {
     return "green__color market__span__container market__justify__content__right";
   }
 }
+
+export function getIdFromResponse(response, id) {
+  const index = response && response.findIndex((res) => res.id === id);
+  return index;
+}
