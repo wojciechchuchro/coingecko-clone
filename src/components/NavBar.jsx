@@ -1,8 +1,11 @@
 import React from "react";
 import "../styles/NavBar.css";
 import ProfileIcon, { BookmarkIcon, MenuIcon } from "../icons/icons";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
+  const navigate = useNavigate();
+
   return (
     <div className="navbar__container">
       <div>
@@ -16,6 +19,7 @@ export default function NavBar() {
           alt="Coingecko logo"
           width="140"
           height="39"
+          onClick={() => navigate("/")}
         />
       </div>
       <div className="navbar__container__icons">
