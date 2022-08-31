@@ -1,0 +1,21 @@
+.history__progress__container {
+  display: grid;
+  grid-template-columns: 14rem 14rem 14rem;
+  grid-template-rows: 2rem 1rem;
+  justify-items: center;
+}
+.history__progress {
+  width: 42rem;
+  height: 2rem;
+}
+.history__progress_div {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  width: 100%;
+}
+
+.history__progress__content {
+  font-size: 1rem;
+  color: #ccc;
+  font-weight: 500;
+}

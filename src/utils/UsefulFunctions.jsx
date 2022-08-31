@@ -1,7 +1,9 @@
 export function currencyFormat(num) {
+  if (!num) return;
   return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
 export function currencyFormatWithoutDollar(num) {
+  if (!num) return;
   return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
 
@@ -27,7 +29,7 @@ export function getIndexFromResponse(response, id) {
   const index = response && response.findIndex((res) => res.id === id);
   return index;
 }
-export function returnMinMax() {
+export function returnMinMax(response) {
   const arr = [];
   response && response.prices.forEach((value) => arr.push(value[1]));
   let min = Math.min(...arr);

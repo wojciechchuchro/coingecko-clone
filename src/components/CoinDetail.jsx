@@ -65,6 +65,9 @@ export default function CoinDetail() {
                 response[index].price_change_percentage_24h.toFixed(1)
               )}
             >
+              {response[index].price_change_percentage_24h.toFixed(1) > 0
+                ? "+"
+                : "-"}
               {response[index].price_change_percentage_24h.toFixed(1)}%
             </span>
           </div>
