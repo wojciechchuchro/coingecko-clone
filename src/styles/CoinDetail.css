@@ -1,0 +1,59 @@
+.details__nav {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.details__nav__green {
+  color: #8dc647;
+  margin: 0 0.3rem;
+}
+
+.details__nav__coins:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #8dc647;
+}
+
+.details__nav__name {
+  color: grey;
+}
+
+.details__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.details__badge {
+  padding: 0.2rem 0.5rem;
+  width: 2.3rem;
+  background-color: hsl(0, 0%, 29%);
+  color: white;
+  border-radius: 0.9rem;
+}
+
+.details__image {
+  width: 28px;
+  height: 28px;
+}
+
+.details__container {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.details__flex {
+  display: flex;
+  align-items: center;
+}
+
+.details__symbol {
+  text-transform: uppercase;
+}
+
+.details__name {
+  margin: 0 0.3rem;
+}

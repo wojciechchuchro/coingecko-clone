@@ -2,6 +2,7 @@ import React from "react";
 import { StarIcon } from "../icons/icons";
 import { Link } from "react-router-dom";
 import { currencyFormat, percentageColor } from "../utils/UsefulFunctions";
+
 export default function Coin({ c }) {
   return (
     <Link className="link" to={`/coin/${c.id}`}>

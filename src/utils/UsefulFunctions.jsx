@@ -11,7 +11,16 @@ export function percentageColor(percentage) {
   }
 }
 
-export function getIdFromResponse(response, id) {
+export function percentageColorDetails(percentage) {
+  if (percentage < 0) {
+    return "red__color";
+  }
+  if (percentage >= 0) {
+    return "green__color";
+  }
+}
+
+export function getIndexFromResponse(response, id) {
   const index = response && response.findIndex((res) => res.id === id);
   return index;
 }
