@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import {
   LineChart,
   Line,
@@ -7,13 +7,11 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
 } from "recharts";
 import moment from "moment";
 import { useParams } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
-import { min } from "moment";
-
+import { returnMinMax } from "../utils/UsefulFunctions";
 export default function HistoryChart() {
   const { id } = useParams();
   const { response } = useAxios(
@@ -31,14 +29,6 @@ export default function HistoryChart() {
       x: value[0],
       y: value[1].toFixed(2),
     }));
-
-  function returnMinMax() {
-    const arr = [];
-    response && response.prices.forEach((value) => arr.push(value[1]));
-    let min = Math.min(...arr);
-    let max = Math.max(...arr);
-    return [min, max];
-  }
 
   return (
     <div>

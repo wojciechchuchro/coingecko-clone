@@ -27,3 +27,10 @@ export function getIndexFromResponse(response, id) {
   const index = response && response.findIndex((res) => res.id === id);
   return index;
 }
+export function returnMinMax() {
+  const arr = [];
+  response && response.prices.forEach((value) => arr.push(value[1]));
+  let min = Math.min(...arr);
+  let max = Math.max(...arr);
+  return [min, max];
+}
