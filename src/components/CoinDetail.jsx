@@ -1,8 +1,9 @@
 import React from "react";
 import useAxios from "../hooks/useAxios";
 import { useNavigate, useParams } from "react-router-dom";
-import { Chevron_right } from "../icons/icons";
+import { ChevronRight } from "../icons/icons";
 import {
+  currencyFormatWithoutDollar,
   getIndexFromResponse,
   percentageColorDetails,
   currencyFormat,
@@ -22,11 +23,12 @@ export default function CoinDetail() {
       </div>
     );
   }
-  console.log(response);
+
   const index = getIndexFromResponse(response, id);
 
   return (
     <>
+      {/* Navigation detail */}
       <div className="details__nav">
         <div
           className="details__nav__coins details__nav__green"
@@ -35,10 +37,11 @@ export default function CoinDetail() {
           Coins
         </div>
         <span className="details__nav__green">
-          <Chevron_right />
+          <ChevronRight />
         </span>
         <div className="details__nav__name">{response[index].name} Price</div>
       </div>
+      {/* detail content */}
       <div className="details__content">
         <div>
           <div className="details__badge">
@@ -66,7 +69,20 @@ export default function CoinDetail() {
             </span>
           </div>
         </div>
-        <div>Market Cap</div>
+        <div className="details__footer">
+          <div className="details__footer__div">
+            <span className="details__footer__grey">Market Cap</span>{" "}
+            {currencyFormat(response[index].market_cap)}
+          </div>
+          <div className="details__footer__div">
+            <span className="details__footer__grey">Circulating Supply</span>{" "}
+            {currencyFormatWithoutDollar(response[index].circulating_supply)}
+          </div>
+          <div className="details__footer__div">
+            <span className="details__footer__grey">Total Supply</span>{" "}
+            {currencyFormatWithoutDollar(response[index].total_supply)}
+          </div>
+        </div>
       </div>
     </>
   );

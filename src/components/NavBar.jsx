@@ -12,7 +12,7 @@ export default function NavBar() {
         <MenuIcon />
       </div>
 
-      <div>
+      <div className="navbar__coingecko__logo">
         <img
           loading="lazy"
           src="https://static.coingecko.com/s/coingecko-logo-white-ea42ded10e4d106e14227d48ea6140dc32214230aa82ef63d0499f9c1e109656.png"

@@ -57,3 +57,23 @@
 .details__name {
   margin: 0 0.3rem;
 }
+
+.details__footer {
+  width: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: large;
+}
+
+.details__footer__grey {
+  color: grey;
+}
+
+.details__footer__div {
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.12);
+  justify-content: space-between;
+  width: 100%;
+}

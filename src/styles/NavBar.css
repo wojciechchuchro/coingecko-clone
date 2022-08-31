@@ -17,3 +17,7 @@
 .navbar__span__icons {
   padding-left: 0.7rem;
 }
+
+.navbar__coingecko__logo {
+  cursor: pointer;
+}

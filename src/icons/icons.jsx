@@ -76,20 +76,20 @@ export function StarIcon() {
   );
 }
 
-export function Chevron_right() {
+export function ChevronRight() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 -2 20 20"
-      stroke-width="1.5"
+      strokeWidth="1.5"
       stroke="currentColor"
       width="16"
       height="20"
     >
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         d="M8.25 4.5l7.5 7.5-7.5 7.5"
       />
     </svg>
