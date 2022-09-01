@@ -9,6 +9,7 @@ import {
   currencyFormat,
 } from "../utils/UsefulFunctions";
 import "../styles/CoinDetail.css";
+import "../styles/CryptoDetail.css";
 
 export default function CoinDetail() {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ export default function CoinDetail() {
   return (
     <>
       {/* Navigation detail */}
-      <div className="details__nav">
+      <div className="details__nav CryptoDetail__grid">
         <div
           className="details__nav__coins details__nav__green"
           onClick={() => navigate("/")}
@@ -43,12 +44,12 @@ export default function CoinDetail() {
       </div>
       {/* detail content */}
       <div className="details__content">
-        <div>
+        <div className="details__flex">
           <div className="details__badge">
             Rank #{response[index].market_cap_rank}
           </div>
           <div className="details__container">
-            <div className="details__flex">
+            <div>
               <img
                 className="details__image"
                 src={response[index].image}
@@ -66,8 +67,8 @@ export default function CoinDetail() {
               )}
             >
               {response[index].price_change_percentage_24h.toFixed(1) > 0
-                ? "+"
-                : "-"}
+                ? "+ "
+                : " "}
               {response[index].price_change_percentage_24h.toFixed(1)}%
             </span>
           </div>

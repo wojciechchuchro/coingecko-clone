@@ -1,3 +1,5 @@
+import useAxios from "../hooks/useAxios";
+
 export function currencyFormat(num) {
   if (!num) return;
   return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
@@ -5,6 +7,11 @@ export function currencyFormat(num) {
 export function currencyFormatWithoutDollar(num) {
   if (!num) return;
   return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+}
+
+export function currencyFormatPercentage(num) {
+  if (!num) return;
+  return num.toFixed(1).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + "%";
 }
 
 export function percentageColor(percentage) {
@@ -35,4 +42,16 @@ export function returnMinMax(response) {
   let min = Math.min(...arr);
   let max = Math.max(...arr);
   return [min, max];
+}
+
+export function BitcoinPrice(id) {
+  const { response } = useAxios(
+    "coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+  );
+  if (!response) {
+    return <div>Loading</div>;
+  }
+  const index = getIndexFromResponse(response, id);
+
+  return `${response[index].symbol.toUpperCase()} / USD`;
 }

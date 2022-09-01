@@ -1,0 +1,18 @@
+.global__header {
+  display: flex;
+  align-items: baseline;
+  padding: 0;
+}
+
+.global__h1 {
+  padding-right: 0.5rem;
+}
+
+.global__body {
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+.global__span {
+  color: #6c757d;
+}

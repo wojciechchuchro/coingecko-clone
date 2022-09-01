@@ -6,7 +6,7 @@ import "../styles/HistoryChart.css";
 import {
   currencyFormat,
   returnMinMax,
-  getIndexFromResponse,
+  BitcoinPrice,
 } from "../utils/UsefulFunctions";
 import {
   LineChart,
@@ -23,30 +23,18 @@ export default function HistoryChart() {
   const { response } = useAxios(
     `coins/${id}/market_chart?vs_currency=usd&days=30&interval=daily`
   );
-  const { res } = useAxios(
-    "coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-  );
 
   if (!response) {
     <div>loading</div>;
   }
 
-  console.log(res);
-
   const data =
     response &&
     response.prices.map((value) => ({
       date: moment(value[0]).format("MMM DD"),
-      x: value[0],
-      y: value[1],
+      x: value[0].toFixed(2),
+      y: value[1].toFixed(2),
     }));
-
-  const index = getIndexFromResponse(res, id);
-
-  function name() {
-    const value = res && res[index].symbol;
-    return `${value} / USD`;
-  }
 
   function getProgress(depencdency) {
     const [min, max] = returnMinMax(response);
@@ -64,25 +52,10 @@ export default function HistoryChart() {
 
   return (
     <div>
-      <div className="history__progress__container">
-        <div className="history__progress_div ">
-          <progress
-            className="history__progress"
-            min={getProgress("min")}
-            max={getProgress("max")}
-            value={getProgress("value")}
-          />
-        </div>
-        <div className="history__progress__content">
-          {currencyFormat(getProgress("min"))}
-        </div>
-        <div className="history__progress__content">24H range</div>
-        <div className="history__progress__content">
-          {currencyFormat(getProgress("max"))}
-        </div>
-      </div>
-
-      <h1>Bitcoin Price Chart {name()} 30d</h1>
+      <h1>
+        Bitcoin Price Chart{" "}
+        <span className="bitcoin__price__span">{BitcoinPrice(id)}</span>
+      </h1>
 
       <LineChart
         width={600}
@@ -95,8 +68,31 @@ export default function HistoryChart() {
         <YAxis domain={returnMinMax(response)} />
         <Tooltip cursor={{ stroke: "#ccc", strokeWidth: 1 }} />
         <Legend verticalAlign="top" />
-        <Line type="monotone" name={name()} dataKey="y" stroke="#8884d8" />
+        <Line
+          type="monotone"
+          name={BitcoinPrice(id)}
+          dataKey="y"
+          stroke="#8884d8"
+          strokeWidth="3"
+        />
       </LineChart>
+      <div className="history__progress__container">
+        <div className="history__progress_div ">
+          <progress
+            className="history__progress"
+            min={getProgress("min")}
+            max={getProgress("max")}
+            value={getProgress("value")}
+          />
+        </div>
+        <div className="history__progress__content">
+          {currencyFormat(getProgress("min"))}
+        </div>
+        <div className="history__progress__content">30 Day Range</div>
+        <div className="history__progress__content">
+          {currencyFormat(getProgress("max"))}
+        </div>
+      </div>
     </div>
   );
 }
